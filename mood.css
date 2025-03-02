@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap');
+
+#xiaolongbao {  
+  --mainfont: "Source Serif Pro";
+  --headingfont: "Spectral";
+
+  --moodbg: url(https://i.pinimg.com/1200x/f3/a7/39/f3a7395822d998b1ef59586278632ec6.jpg);
+
+  font-size: 13px;
+  color: rgba(var(--xiaotext));
+}
+
+:root[color-mode="light"] #xiaolongbao {
+  --shade1: 245, 245, 245;
+  --shade2: 129, 129, 129;
+  
+  --xiaotext: 0,0,0;
+}
+
+:root[color-mode="dark"] #xiaolongbao {
+  --shade1: 61, 61, 61;
+  --shade2: 46, 46, 46;
+
+  --xiaotext: 218, 218, 218;
+}
+
+mood {
+  position: relative;
+  width: 100%;
+  max-width: 630px;
+  margin: 10px auto;
+  background-color: rgba(var(--shade1));
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 6px solid var(--grpbgc);
+  border-top: 3px solid var(--grpbgc);
+  padding-top: 10px;
+}
+
+moodr::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  max-height: 300px;
+  bottom: 0;
+  background: var(--moodbg);
+  background-size: cover;
+  opacity: 0.45;
+}
+
+:root[color-mode="dark"] moodr::before { background: none !important; }
+
+moodr::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  max-height: 300px;
+  background-image: linear-gradient(0deg, rgba(var(--shade1), 0), rgba(var(--shade1)) 25%);
+  display: block;
+  bottom: 0;
+  z-index: 2;
+}
+
+moodl {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  width: 33%;
+}
+
+moodl > a > img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+  position: relative;
+  border: 1px solid rgba(var(--shade1));
+  margin-left: 4px;
+  z-index: 1;
+}
+
+moodl tag {
+  position: absolute;
+  font: 700 0.5rem/0.7rem Roboto;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  bottom: 0;
+  max-width: 80%;
+  text-align: center;
+}
+
+moodl tag a {
+  text-decoration: none;
+  color: var(--grpbgc) !important;
+}
+
+moodl tag a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  background-color: var(--grpbgc);
+  left: 0;
+  bottom: -3%;
+  transition: 0.35s ease;
+}
+
+moodl tag a:hover::before {
+  width: 100%;
+}
+
+gr {
+  width: 170px;
+  height: 170px;
+  position: absolute;
+  background: radial-gradient(circle, rgba(var(--grpbgcrgb), 0.7), rgba(var(--shade1), 0) 55%);
+  display: block;
+  margin-left: 2px;
+}
+
+moodr {
+  position: relative;
+  height: auto;
+  padding: 65px 0 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 67%;
+}
+
+moodcontent {
+  display: block;
+  position: relative;
+  width: 80%;
+  font: 0.75rem/185% var(--mainfont), serif;
+  text-align: justify;
+  margin: auto;
+  z-index: 4;
+}
+
+#xiaolongbao moodcontent p {
+  text-indent: 2em;
+}
+
+#xiaolongbao moodcontent b {
+  padding: 2px 4px;
+  font-style: italic;
+  font-weight: 700;
+  background-color: rgba(var(--grpbgcrgb), 0.25);
+}
+
+#xiaolongbao moodcontent i {
+  font-weight: 700;
+  color: var(--grpbgc);
+  filter: brightness(65%);
+}
+
+:root[color-mode="dark"] #xiaolongbao moodcontent i {
+  filter: unset !important;
+}
+
+moodquotes {
+  font-family: var(--headingfont), serif;
+  font-style: italic;
+  font-weight: 600;
+  text-transform: lowercase;
+  display: block;
+  width: 100%;
+  text-align: right;
+  max-width: max-content;
+  margin-left: auto;
+  margin-bottom: 30px;
+  padding-bottom: 3px;
+  position: relative;
+  z-index: 0;
+}
+
+moodquotes::before {
+  content: '';
+  position: absolute;
+  background-color: var(--grpbgc);
+  width: 25%;
+  height: 3px;
+  right: 0;
+  bottom: -35%;
+}
+
+fp {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 980px) {
+  moodl, moodr {
+    width: 100%;
+  }
+  moodcontent {
+    width: 85%;
+    padding: unset !important;
+  }
+}
